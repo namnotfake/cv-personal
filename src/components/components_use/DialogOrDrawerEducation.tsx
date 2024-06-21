@@ -40,7 +40,7 @@ const StudentCard = () => {
       <div className="flex items-start bg-blue-700 text-white rounded-b-lg p-2">
         <div className="w-1/2">
           <Image
-            src={"https://i.imgur.com/XLSBEB9.jpeg"}
+            src={"https://i.imgur.com/IrEJQrk.jpeg"}
             alt="Logo DL"
             width={96}
             height={144}
@@ -78,7 +78,7 @@ const StudentCard = () => {
               <p>: 2018 - 2023</p>
             </div>
             <div className="flex text-sm">
-              <div className="w-1/4 mr-1">
+              <div className="w-28 mr-1">
                 <p>{t("Majors").toLocaleUpperCase()}</p>
               </div>
               <p> : {t("information technology").toLocaleUpperCase()}</p>

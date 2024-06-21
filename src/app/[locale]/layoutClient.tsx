@@ -65,7 +65,7 @@ const LayoutClient = ({
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         <Header />
-        <div className="w-11/12 lg:w-2/3 mt-14">{children}</div>
+        <div className="w-11/12 xl:w-2/3 mt-14">{children}</div>
         <Footer />
       </main>
     </I18nProviderClient>

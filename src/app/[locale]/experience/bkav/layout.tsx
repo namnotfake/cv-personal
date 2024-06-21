@@ -11,5 +11,5 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <div className="mt-10">{children}</div>;
 }

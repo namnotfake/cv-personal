@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import LayoutClient from "./layoutClient";
+import HolyLoader from "holy-loader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         <body suppressHydrationWarning>
+          <HolyLoader />
           <LayoutClient params={params}>
             {children}
             {modal}

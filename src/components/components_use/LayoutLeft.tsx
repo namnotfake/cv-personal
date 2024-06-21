@@ -42,7 +42,7 @@ const LayoutLeft = () => {
           )}
         </p>
         <div className="border-b-[2px] border-b-black">
-          <div className="py-3 flex justify-between items-center">
+          <div className="py-3 flex justify-between items-center flex-wrap gap-2">
             <Text text={t("PROFESSION")} />
             <Text text="FRONTEND DEVELOPER" />
           </div>

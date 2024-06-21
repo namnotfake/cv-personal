@@ -4,6 +4,8 @@ import { Button } from "../ui/button";
 import Masonry from "./base/masonry/Masonry";
 import utilState from "@/lib/stores/utilState.store";
 import { useRouter } from "next/navigation";
+import DialogOrDrawerEducation from "./DialogOrDrawerEducation";
+import { useRef } from "react";
 
 const LineBase = ({ text }: { text: string }) => {
   return (
@@ -36,7 +38,7 @@ const Experience = () => {
           </div>
         </div>
         <div className="flex justify-end">
-          <p className="text-sm font-semibold">FULLSTACK DEVELOPER</p>
+          <p className="text-sm font-semibold">FRONTEND DEVELOPER</p>
         </div>
         <div>
           <p className="text-justify py-2">
@@ -69,12 +71,12 @@ const Experience = () => {
   );
 };
 
-const Education = () => {
+const Education = ({ onClick }: { onClick: any }) => {
   const t = useI18n();
   return (
-    <div className="w-full">
+    <div className="w-full" onClick={onClick}>
       <LineBase text={t("EDUCATION")} />
-      <div className="pt-4">
+      <div className="pt-4 hover:bg-slate-100 cursor-pointer">
         <div className="flex justify-between items-center">
           <p className="font-medium">{t("Electric Power University")}</p>
           <p className="font-medium">2018-2023</p>
@@ -176,23 +178,32 @@ const LayoutRight = () => {
   const t = useI18n();
   const { isMobile } = utilState();
 
+  const showStudentCartRef = useRef<any>(null);
+
+  const handleShowStudentCart = () => {
+    showStudentCartRef.current?.open();
+  };
+
   return (
-    <div className="w-full md:w-2/3 pt-10 md:pt-0 md:pl-20">
-      <Experience />
-      {isMobile ? (
-        <>
-          <Education />
-          <Skills />
-          <Hobby />
-        </>
-      ) : (
-        <Masonry columnsCount={2} gutter="24px">
-          <Education />
-          <Hobby />
-          <Skills />
-        </Masonry>
-      )}
-    </div>
+    <>
+      <DialogOrDrawerEducation ref={showStudentCartRef} />
+      <div className="w-full md:w-2/3 pt-10 md:pt-0 md:pl-20">
+        <Experience />
+        {isMobile ? (
+          <>
+            <Education onClick={handleShowStudentCart} />
+            <Skills />
+            <Hobby />
+          </>
+        ) : (
+          <Masonry columnsCount={2} gutter="24px">
+            <Education onClick={handleShowStudentCart} />
+            <Hobby />
+            <Skills />
+          </Masonry>
+        )}
+      </div>
+    </>
   );
 };
 

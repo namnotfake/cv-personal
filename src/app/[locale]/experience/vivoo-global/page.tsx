@@ -5,6 +5,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useI18n } from "@/locales/config/client";
 import Image from "next/image";
@@ -83,6 +85,8 @@ const Page = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
           </Carousel>
         </div>
         <div id="1art" className="py-3">
@@ -142,17 +146,22 @@ const Page = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
           </Carousel>
         </div>
       </div>
       <div id="prev">
         <p className="text-2xl font-bold">05/2021 - 01/2022</p>
-        <p className="text-lg">
-          {t("This is the internship period at the company")}
-        </p>
-        <p className="text-lg">
-          {t("Learn and work with Javascript, HTML/CSS")}
-        </p>
+        <ul className="list-disc list-inside text-lg">
+          <li className="text-lg">
+            {t("This is the internship period at the company")}
+          </li>
+          <li className="text-lg">
+            {t("Learn and work with Javascript, HTML/CSS")}
+          </li>
+          <li>{t("Designing websites using AdobeXD")}</li>
+        </ul>
       </div>
     </div>
   );
