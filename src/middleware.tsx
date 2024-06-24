@@ -13,6 +13,16 @@ const I18nMiddleware = createI18nMiddleware({
 });
 
 export async function middleware(request: NextRequest) {
+  const ip = request.ip ?? "125.212.225.71";
+  const apiToken = cookies().get("token");
+  if (apiToken) api.setAuthorzation(apiToken.value);
+  // const { success } = await ratelimit.limit(ip);
+
+  // if (!success) {
+  //   return NextResponse.redirect(
+  //     new URL("https://re-marketing.click", request.url)
+  //   );
+  // }
   return I18nMiddleware(request);
 }
 
