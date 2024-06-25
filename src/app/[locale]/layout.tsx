@@ -14,10 +14,8 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
   params,
-  modal,
 }: Readonly<{
   children: React.ReactNode;
-  modal: React.ReactNode;
   params: { locale: string };
 }>) {
   return (
@@ -29,10 +27,7 @@ export default function RootLayout({
       >
         <body suppressHydrationWarning>
           <HolyLoader />
-          <LayoutClient params={params}>
-            {children}
-            {modal}
-          </LayoutClient>
+          <LayoutClient params={params}>{children}</LayoutClient>
         </body>
       </html>
     </>
